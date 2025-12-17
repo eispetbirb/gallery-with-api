@@ -22,34 +22,37 @@
     style="background-image: url('BG3.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
 
     <nav class="navbar sticky-top navbar-dark" style="background-color: rgba(94, 87, 174, 0.482);">
-        <div class="container-fluid">
+        <div class="container-fluid d-flex flex-column flex-md-row align-items-center">
 
             <!-- disney logo -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand mb-2 mb-md-0" href="#">
                 <img src="disneylogo.png" alt="Bootstrap">
             </a>
 
-            <div class="d-flex align-items-center fs-1 text-white" style="margin-right: 50px;">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
+            <div
+                class="d-flex flex-row flex-md-row align-items-center gap-2 w-100 w-md-auto justify-content-center justify-content-md-end">
+                <nav aria-label="Page navigation example" class="d-flex align-items-center">
+                    <ul class="pagination mb-0">
                         <li class="page-item">
                             <a class="page-link" aria-label="Previous" onclick="prevPage()">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
+
                         <li class="page-disabled">
                             <span class="page-link" id="pageText">Page 1</span>
                         </li>
+
                         <li class="page-item">
                             <a class="page-link" aria-label="Next" onclick="nextPage()">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </ul>
-                    <a href="index.html">
-                        <button class="btn btn-secondary ms-4">Go Back</button>
-                    </a>
                 </nav>
+                <a href="index.html">
+                    <button class="btn btn-secondary ms-4">Go Back</button>
+                </a>
             </div>
         </div>
     </nav>

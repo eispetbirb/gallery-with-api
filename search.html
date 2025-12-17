@@ -19,25 +19,29 @@
 
 <body
     style="background-image: url('BG3.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+
     <nav class="navbar sticky-top navbar-dark" style="background-color: rgba(94, 87, 174, 0.482);">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+        <div class="container-fluid d-flex flex-column flex-md-row align-items-center">
+            <a class="navbar-brand mb-2 mb-md-0" href="#">
                 <img src="disneylogo.png" class="img-fluid" alt="Disney Logo">
             </a>
 
-            <a href="index.html" class="ms-auto">
+            <a href="index.html" class="ms-md-auto">
                 <button class="btn btn-secondary mx-5">Go Back</button>
             </a>
         </div>
     </nav>
 
     <div class="container my-3">
-        <div class="row">
-            <div class="col-11">
+        <div class="row justify-content-center mb-3">
+            <div class="col-10 col-sm-8 col-md-6">
                 <input type="text" placeholder="Character Name" class="form-control rounded-5" id="searchInput">
             </div>
-            <div class="col-1">
-                <button class="btn btn-info rounded-5" onclick="searchCharacter()">Search</button>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-4 col-md-3">
+                <button class="btn btn-info rounded-5 w-100" onclick="searchCharacter()">Search</button>
             </div>
         </div>
     </div>
