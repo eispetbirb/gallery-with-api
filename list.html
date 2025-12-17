@@ -39,27 +39,25 @@
     style="background-image: url('BG3.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
 
     <nav class="navbar sticky-top navbar-dark" style="background-color: rgba(94, 87, 174, 0.482);">
-        <div class="container-fluid d-flex flex-column flex-md-row align-items-center">
+        <div
+            class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between">
 
-            <!-- disney logo -->
             <a class="navbar-brand mb-2 mb-md-0" href="#">
-                <img src="disneylogo.png" alt="Bootstrap">
+                <img src="disneylogo.png" alt="Disney Logo" class="img-fluid">
             </a>
 
-            <div
-                class="d-flex flex-row flex-md-row align-items-center gap-2 w-100 w-md-auto justify-content-center justify-content-md-end">
-                <nav aria-label="Page navigation example" class="d-flex align-items-center">
-                    <ul class="pagination mb-0">
+            <div class="d-flex flex-column flex-md-row align-items-center gap-2 mt-2 mt-md-0">
+
+                <nav class="d-flex justify-content-center mb-2 mb-md-0" aria-label="Page navigation">
+                    <ul class="pagination mb-0 justify-content-center">
                         <li class="page-item">
                             <a class="page-link" aria-label="Previous" onclick="prevPage()">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-
                         <li class="page-disabled">
                             <span class="page-link" id="pageText">Page 1</span>
                         </li>
-
                         <li class="page-item">
                             <a class="page-link" aria-label="Next" onclick="nextPage()">
                                 <span aria-hidden="true">&raquo;</span>
@@ -67,12 +65,14 @@
                         </li>
                     </ul>
                 </nav>
-                <a href="index.html">
-                    <button class="btn btn-secondary ms-4">Go Back</button>
+
+                <a href="index.html" class="d-flex justify-content-center">
+                    <button class="btn btn-secondary w-100 w-md-auto">Go Back</button>
                 </a>
             </div>
         </div>
     </nav>
+
 
     <div class="container my-1">
         <div class="row" id="contentArea">
