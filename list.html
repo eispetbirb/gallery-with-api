@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Disney Characters List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <style>
+        .character-img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+    </style>
+
+</head>
+
+<body
+    style="background-image: url('BG3.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+
+    <nav class="navbar sticky-top navbar-dark" style="background-color: rgba(94, 87, 174, 0.482);">
+        <div class="container-fluid">
+
+            <!-- disney logo -->
+            <a class="navbar-brand" href="#">
+                <img src="disneylogo.png" alt="Bootstrap">
+            </a>
+
+            <div class="d-flex align-items-center fs-1 text-white" style="margin-right: 50px;">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Previous" onclick="prevPage()">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-disabled">
+                            <span class="page-link" id="pageText">Page 1</span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Next" onclick="nextPage()">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="index.html">
+                        <button class="btn btn-secondary ms-4">Go Back</button>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-1">
+        <div class="row" id="contentArea">
+        </div>
+    </div>
+
+    <script>
+        const contentArea = document.getElementById("contentArea");
+        const pageText = document.getElementById("pageText");
+
+        let page = 1;
+
+        function prevPage() {
+            if (page > 1) {
+                page--;
+                loadCharacters();
+            }
+        }
+
+        function nextPage() {
+            page++;
+            loadCharacters();
+        }
+
+        const loadCharacters = async () => {
+            contentArea.innerHTML = "";
+            pageText.innerHTML = "Page " + page;
+
+            const response = await fetch(`https://api.disneyapi.dev/character?page=${page}`);
+            const result = await response.json();
+
+            result.data.forEach(character => {
+                const name = character.name;
+                const image = character.imageUrl ||
+                    "https://via.placeholder.com/300x300?text=No+Image";
+
+                const films = character.films.length > 0
+                    ? character.films.join(", ")
+                    : "Unknown";
+
+                contentArea.innerHTML += `
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card p-3 rounded-5 my-2 text-center h-100">
+                        
+                            <div class="d-flex justify-content-center mb-3">
+                                <img src="${image}" class="character-img">
+                            </div>
+
+                            <div class="h5">${name}</div>
+                            <small class="text-muted">Film(s): ${films}</small>
+                        </div>
+                    </div>
+                `;
+            });
+        };
+
+        loadCharacters();
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
